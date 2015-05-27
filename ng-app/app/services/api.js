@@ -2,7 +2,7 @@
 
 angular.module('valueMash')
 
-.service('API', function($http) {
+.service('API', function($http, $auth) {
 
   // Query wrapper
   var _query = function(params) {
@@ -25,12 +25,19 @@ angular.module('valueMash')
   var api = {
 
     login: function(data) {
-      return _query({
-        auth: false,
-        method: 'POST',
-        url: 'sessions.json',
-        data: data
+
+      $auth.submitLogin(data)
+      .then(function(resp) {
+        // console.info('success', resp);
       });
+
+      // return _query({
+      //   auth: false,
+      //   method: 'POST',
+      //   url: 'sessions.json',
+      //   data: data
+      // });
+
     }
 
   };

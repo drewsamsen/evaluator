@@ -15,10 +15,10 @@ angular.module('valueMash')
     };
 
     $scope.attemptAuth = function(credentials) {
-      if (!credentials || !credentials.username || !credentials.password) {
-        Notifier.show('Invalid username or password');
+      if (!credentials || !credentials.email || !credentials.password) {
+        Notifier.show('Invalid email or password');
       } else {
-        Notifier.show('Attempting auth...');
+        console.log('attempting auth...');
         API.login(credentials);
       }
     };
