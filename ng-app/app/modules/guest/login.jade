@@ -1,0 +1,22 @@
+h3 Login!
+
+md-content(layout="row")
+  md-button.contact(ui-sref="layout_app.dashboard" aria-label="Log in")
+    md-tooltip Dashboard
+    | Dashboard
+
+  md-button(ng-click="showNotice()")
+    | Show notice test
+
+md-content(layout="row")
+  md-input-container
+    label Username
+    input(ng-model="credentials.username")
+
+  md-input-container
+    label Password
+    input(ng-model="credentials.password" type="password")
+
+md-button.md-raised.md-primary(ng-click="attemptAuth(credentials)") Log In
+
+pre {{ credentials | json }}
