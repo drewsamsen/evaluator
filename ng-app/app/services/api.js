@@ -25,19 +25,17 @@ angular.module('valueMash')
   var api = {
 
     login: function(data) {
-
       $auth.submitLogin(data)
       .then(function(resp) {
         // console.info('success', resp);
       });
+    },
 
-      // return _query({
-      //   auth: false,
-      //   method: 'POST',
-      //   url: 'sessions.json',
-      //   data: data
-      // });
-
+    register: function(data) {
+      $auth.submitRegistration(data)
+      .then(function(resp) {
+        // something
+      });
     }
 
   };

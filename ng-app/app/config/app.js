@@ -34,15 +34,44 @@ angular.module('valueMash', [
 
 })
 
-.run(function($rootScope, Notifier) {
+.run(function($rootScope, Notifier, User, $state) {
 
-  // $auth events
+  /**
+   * Check access for requested pages
+   */
+  $rootScope.$on('$stateChangeStart', function(event, toState) {
+    // if (!toState.isPublic && User.isGuest()) {
+    //   event.preventDefault();
+    //   Notifier.show('Please log in');
+    //   $state.go('layout_guest.login');
+    // }
+  });
+
+  // On page load:
+  $rootScope.$on('auth:validation-success', function(ev, user) {
+    console.log('auth:validation-success');
+  });
+  $rootScope.$on('auth:validation-error', function(ev, user) {
+    console.log('auth:validation-error');
+  });
+  $rootScope.$on('auth:validation-expired', function(ev, user) {
+    console.log('auth:validation-expired');
+  });
+
+  // $auth login events
   $rootScope.$on('auth:login-success', function(ev, user) {
     Notifier.show('auth:login-success');
   });
-
   $rootScope.$on('auth:login-error', function(ev, user) {
     Notifier.show('auth:login-error');
+  });
+
+  // $auth register events
+  $rootScope.$on('auth:registration-email-success', function(ev, user) {
+    Notifier.show('auth:registration-email-success');
+  });
+  $rootScope.$on('auth:registration-email-error', function(ev, user) {
+    Notifier.show('auth:registration-email-error');
   });
 
 });

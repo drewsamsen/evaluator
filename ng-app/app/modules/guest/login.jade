@@ -8,15 +8,34 @@ md-content(layout="row")
   md-button(ng-click="showNotice()")
     | Show notice test
 
-md-content(layout="row")
-  md-input-container
-    label Username
-    input(ng-model="credentials.email")
+div(layout="row")
+  md-content(layout-padding)
+    div(layout="row")
+      md-input-container
+        label Email
+        input(ng-model="credentials.email")
 
-  md-input-container
-    label Password
-    input(ng-model="credentials.password" type="password")
+      md-input-container
+        label Password
+        input(ng-model="credentials.password" type="password")
 
-md-button.md-raised.md-primary(ng-click="attemptAuth(credentials)") Log In
+    md-button.md-raised.md-primary(ng-click="attemptAuth(credentials)") Log In
+
+div(layout="row")
+  md-content(layout-padding)
+    div(layout="row")
+      md-input-container
+        label Email
+        input(ng-model="signup.email")
+
+      md-input-container
+        label Password
+        input(ng-model="signup.password" type="password")
+
+      md-input-container
+        label Password Confirmation
+        input(ng-model="signup.password_confirmation" type="password")
+
+    md-button.md-raised.md-primary(ng-click="attemptRegister(signup)") Sign up
 
 pre {{ credentials | json }}

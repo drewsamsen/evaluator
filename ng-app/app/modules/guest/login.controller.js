@@ -2,7 +2,7 @@
 
 angular.module('valueMash')
   .controller('LoginCtrl', function ($scope, $rootScope, $window, $state,
-    CacheFactory, Notifier, API) {
+    CacheFactory, Notifier, API, $auth) {
 
     $scope.model = {
       login: '',
@@ -15,13 +15,12 @@ angular.module('valueMash')
     };
 
     $scope.attemptAuth = function(credentials) {
-      if (!credentials || !credentials.email || !credentials.password) {
-        Notifier.show('Invalid email or password');
-      } else {
-        console.log('attempting auth...');
-        API.login(credentials);
-      }
+      API.login(credentials);
     };
+
+    $scope.attemptRegister = function(credentials) {
+      API.register(credentials);
+    }
 
     // $scope.loginProcess = function() {
     //   $scope.model.inProgress = true;

@@ -7,7 +7,7 @@ angular.module('valueMash')
   $locationProvider.html5Mode(false);
   $locationProvider.hashPrefix('!');
 
-  $urlRouterProvider.otherwise('/dashboard');
+  $urlRouterProvider.otherwise('/login');
 
   $stateProvider
 
@@ -16,6 +16,7 @@ angular.module('valueMash')
    */
   .state('layout_guest', {
     abstract: true,
+    isPublic: true,
     views: {
       'root': {
         templateUrl: 'modules/layout/layout_guest.html',
@@ -28,8 +29,8 @@ angular.module('valueMash')
     url: '/login',
     templateUrl: 'modules/guest/login.html',
     controller: 'LoginCtrl',
+    guestOnly: true,
     isPublic: true,
-    guestOnly: true
   })
 
   /**
@@ -37,6 +38,7 @@ angular.module('valueMash')
    */
   .state('layout_app', {
     abstract: true,
+    isPublic: false,
     views: {
       'root': {
         templateUrl: 'modules/layout/layout_app.html',
@@ -51,10 +53,14 @@ angular.module('valueMash')
 
   .state('layout_app.dashboard', {
     url: '/dashboard',
+    isPublic: false,
     templateUrl: 'modules/dashboard/dashboard.html',
-    controller: 'DashboardCtrl'
-  })
-
-  ;
+    controller: 'DashboardCtrl',
+    resolve: {
+      auth: function($auth) {
+        return $auth.validateUser();
+      }
+    }
+  });
 
 });
