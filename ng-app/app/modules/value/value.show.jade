@@ -1,0 +1,23 @@
+h2
+  a(href="" ui-sref="layout_app.values")
+    | Values
+  | - {{ value.name }}
+
+form(layout="row"
+  ng-if="user.admin"
+  name="updateValueForm"
+  ng-submit="updateValue(value)"
+  novalidate)
+
+  md-content(layout-padding)
+    div(layout="row")
+      md-input-container
+        label Name
+        input(ng-model="value.name" required)
+
+      md-input-container
+        label Description
+        input(ng-model="value.description" required)
+
+    md-button.submit-btn.md-raised.md-primary(ng-disabled="updateValueForm.$invalid")
+      | Update Value

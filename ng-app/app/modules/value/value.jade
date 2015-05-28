@@ -1,27 +1,31 @@
-h2 Values
+div(ui-view="")
 
-div(ng-repeat="value in values" layout="row")
-  div(layout-padding) {{ value.id }}
-  div(layout-padding) {{ value.name }}
-  div(layout-padding) {{ value.description }}
+  h2 Values
 
-hr
+  div(ng-repeat="value in values" layout="row")
+    div(layout-padding) {{ value.id }}
+    div(layout-padding)
+      a(href="" ui-sref="layout_app.values.show({valueId: value.id})")
+        | {{ value.name }}
+    div(layout-padding) {{ value.description }}
 
-form(layout="row"
-  ng-if="user.admin"
-  name="newValueForm"
-  ng-submit="createValue(newValue)"
-  novalidate)
+  hr
 
-  md-content(layout-padding)
-    div(layout="row")
-      md-input-container
-        label Name
-        input(ng-model="newValue.name" required)
+  form(layout="row"
+    ng-if="user.admin"
+    name="newValueForm"
+    ng-submit="createValue(newValue)"
+    novalidate)
 
-      md-input-container
-        label Description
-        input(ng-model="newValue.description" required)
+    md-content(layout-padding)
+      div(layout="row")
+        md-input-container
+          label Name
+          input(ng-model="newValue.name" required)
 
-    md-button.submit-btn.md-raised.md-primary(ng-disabled="newValueForm.$invalid")
-      | Create new Value
+        md-input-container
+          label Description
+          input(ng-model="newValue.description" required)
+
+      md-button.submit-btn.md-raised.md-primary(ng-disabled="newValueForm.$invalid")
+        | Create new Value

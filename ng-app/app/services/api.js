@@ -55,6 +55,21 @@ angular.module('valueMash')
           url: 'values.json',
           data: data
         });
+      },
+
+      get: function(id) {
+        return _query({
+          method: 'GET',
+          url: 'values/'+id+'.json'
+        });
+      },
+
+      update: function(id, data) {
+        return _query({
+          method: 'PUT',
+          url: 'values/'+id+'.json',
+          data: data
+        });
       }
 
     }

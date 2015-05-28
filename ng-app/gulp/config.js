@@ -8,7 +8,9 @@ var fs      = require('fs');
 gulp.task('config', function () {
 
   // Get the environment from the command line
-  var env = args.env || 'dev';
+  // Note that we are defaulting to production, since that is almost always
+  // why we build. To test dev, 'gulp build --env=dev'
+  var env = args.env || 'production';
   var filePath = paths.src + '/config/env/' + env + '.json';
   var settings = {};
 

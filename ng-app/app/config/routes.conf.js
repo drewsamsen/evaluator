@@ -67,6 +67,12 @@ angular.module('valueMash')
     url: '/values',
     templateUrl: 'modules/value/value.html',
     controller: 'ValueCtrl'
+  })
+
+  .state('layout_app.values.show', {
+    url: '/{valueId:[0-9]+}',
+    templateUrl: 'modules/value/value.show.html',
+    controller: 'ValueShowCtrl'
   });
 
 });
