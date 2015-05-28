@@ -43,7 +43,9 @@ angular.module('valueMash', [
 
 })
 
-.run(function($rootScope, Notifier, $state) {
+.run(function($rootScope, Notifier, $state, ENV) {
+
+  $rootScope.ENV = ENV;
 
   /**
    * Check access for requested pages. Note the $auth.validateUser() in a state

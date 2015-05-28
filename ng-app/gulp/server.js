@@ -40,7 +40,7 @@ function browserSyncInit(baseDir, files, browser) {
   browserSync.instance = browserSync.init(files, browserSyncConf);
 }
 
-gulp.task('serve', ['watch'], function () {
+gulp.task('serve', ['watch', 'config'], function () {
   browserSyncInit([
     paths.tmp + '/serve',
     paths.src
