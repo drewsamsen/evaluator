@@ -2,7 +2,7 @@
 
 angular.module('valueMash')
 
-.controller('ValueShowCtrl', function($scope, API, $stateParams) {
+.controller('ValueShowCtrl', function($scope, API, $stateParams, Notifier) {
 
   $scope.value = {};
 
@@ -15,8 +15,8 @@ angular.module('valueMash')
   $scope.updateValue = function(value) {
     API.values.update(value.id, value)
     .then(function(resp) {
-      console.log('resp', resp);
-      if (resp && resp.data && resp.data.value) {
+      if (resp.status === 200) {
+        Notifier.show('Success: Value updated');
         $scope.value = resp.data.value;
       }
     });
