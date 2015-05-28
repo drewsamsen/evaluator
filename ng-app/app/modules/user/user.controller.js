@@ -6,7 +6,7 @@ angular.module('valueMash')
 
   $scope.users = {};
 
-  API.getUsers().then(function(resp) {
+  API.users.all().then(function(resp) {
     console.log('resp', resp);
     $scope.users = resp.data.users;
   });

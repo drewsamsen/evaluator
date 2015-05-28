@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get 'users' => 'user#index'
+
   get 'values' => 'value#index'
+  post 'values' => 'value#create'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

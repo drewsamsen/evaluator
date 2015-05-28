@@ -8,5 +8,13 @@ class ApplicationController < ActionController::Base
 
   respond_to :json
 
+  private
+
+  def check_admin
+    unless current_user && current_user.admin?
+      return render :json => { :errors => 'Not authorized' }, :status => 401
+    end
+  end
+
 
 end

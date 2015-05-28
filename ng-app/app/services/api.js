@@ -29,18 +29,34 @@ angular.module('valueMash')
 
   var api = {
 
-    getUsers: function() {
-      return _query({
-        method: 'GET',
-        url: 'users.json'
-      });
+    users: {
+
+      all: function() {
+        return _query({
+          method: 'GET',
+          url: 'users.json'
+        });
+      }
+
     },
 
-    getValues: function() {
-      return _query({
-        method: 'GET',
-        url: 'values.json'
-      });
+    values: {
+
+      all: function() {
+        return _query({
+          method: 'GET',
+          url: 'values.json'
+        });
+      },
+
+      create: function(data) {
+        return _query({
+          method: 'POST',
+          url: 'values.json',
+          data: data
+        });
+      }
+
     }
 
   };
