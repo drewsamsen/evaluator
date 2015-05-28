@@ -1,0 +1,8 @@
+h2 Values
+
+div(ng-repeat="value in values" layout="row")
+  div(layout-padding) {{ value.id }}
+  div(layout-padding) {{ value.id }}
+  div(layout-padding) {{ value.id }}
+
+pre {{ values | json }}

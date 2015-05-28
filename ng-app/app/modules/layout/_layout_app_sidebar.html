@@ -3,9 +3,23 @@
 </md-toolbar>
 
 <md-list>
-  <md-list-item ng-repeat="it in ['1','2','3']">
-    <md-button>
-      Thing {{ it }}
+
+  <md-list-item>
+    <md-button ui-sref="layout_app.dashboard">
+      Dashboard
     </md-button>
   </md-list-item>
+
+  <md-list-item>
+    <md-button ui-sref="layout_app.users">
+      Users
+    </md-button>
+  </md-list-item>
+
+  <md-list-item>
+    <md-button ui-sref="layout_app.values">
+      Values
+    </md-button>
+  </md-list-item>
+
 </md-list>

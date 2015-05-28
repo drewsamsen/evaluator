@@ -22,5 +22,17 @@ module Valuemash2
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # For local dev, when ng-app is calling from localhost:3001
+    # config.middleware.use Rack::Cors do
+    #   allow do
+    #     origins 'localhost:3001'
+    #     resource '*',
+    #       :headers => :any,
+    #       :expose => ['access-token', 'expiry', 'token-type', 'uid', 'client'],
+    #       :methods => [:get, :post, :options, :delete, :put]
+    #   end
+    # end
+
   end
 end

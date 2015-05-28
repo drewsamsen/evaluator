@@ -33,7 +33,12 @@ angular.module('valueMash', [
 
   $authProvider.configure({
     // apiUrl: 'https://whispering-wildwood-2811.herokuapp.com'
+
+    // Production
     apiUrl: ''
+
+    // Local dev:
+    // apiUrl: 'http://localhost:3000'
   });
 
 })

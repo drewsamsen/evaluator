@@ -42,6 +42,8 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem 'pry'
 end
 
 # Helps with Heroku. Configures things like logging to work on the platform.
@@ -50,6 +52,8 @@ gem 'rails_12factor', group: :production
 # https://github.com/lynndylanhurley/devise_token_auth
 gem 'devise_token_auth'
 gem 'omniauth', '>= 1.0.0'
+
+gem 'rack-cors', :require => 'rack/cors'
 
 # Used on Heroku
 ruby '2.2.0'

@@ -55,6 +55,18 @@ angular.module('valueMash')
     url: '/dashboard',
     templateUrl: 'modules/dashboard/dashboard.html',
     controller: 'DashboardCtrl'
+  })
+
+  .state('layout_app.users', {
+    url: '/users',
+    templateUrl: 'modules/user/user.html',
+    controller: 'UserCtrl'
+  })
+
+  .state('layout_app.values', {
+    url: '/values',
+    templateUrl: 'modules/value/value.html',
+    controller: 'ValueCtrl'
   });
 
 });
