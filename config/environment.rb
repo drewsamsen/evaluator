@@ -10,8 +10,18 @@ ActionMailer::Base.smtp_settings = {
   :address        => 'smtp.sendgrid.net',
   :port           => '587',
   :authentication => :plain,
-  :user_name      => ENV['SENDGRID_USERNAME'], # 'app37253305@heroku.com',
-  :password       => ENV['SENDGRID_PASSWORD'], # 'l7ylyxtv4389',
+  :user_name      => ENV['SENDGRID_USERNAME'],
+  :password       => ENV['SENDGRID_PASSWORD'],
   :domain         => 'heroku.com',
   :enable_starttls_auto => true
 }
+
+# ActionMailer::Base.smtp_settings = {
+#   :address        => 'smtp.sendgrid.net',
+#   :port           => '587',
+#   :authentication => :plain,
+#   :user_name      => 'app37253305@heroku.com',
+#   :password       => 'l7ylyxtv4389',
+#   :domain         => 'heroku.com',
+#   :enable_starttls_auto => true
+# }

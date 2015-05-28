@@ -5,6 +5,9 @@ md-content(layout="row")
     md-tooltip Dashboard
     | Go to Dashboard
 
+  md-button(ng-click="modalTest($event)")
+    | Modal test
+
 form(layout="row"
   name="loginForm"
   ng-submit="attemptAuth(credentials)"

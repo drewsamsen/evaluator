@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('valueMash')
-  .controller('LoginCtrl', function ($scope, API) {
+  .controller('LoginCtrl', function ($scope, API, $mdDialog) {
 
     $scope.attemptAuth = function(credentials) {
       API.login(credentials);
@@ -14,6 +14,14 @@ angular.module('valueMash')
     $scope.resetPass = function(credentials) {
       API.resetPassword(credentials);
     };
+
+    $scope.modalTest = function($event) {
+      $mdDialog.show({
+        controller: 'changePasswordModalCtrl',
+        templateUrl: 'modules/guest/_change_password.modal.html',
+        targetEvent: $event
+      });
+    }
 
     // $scope.loginProcess = function() {
     //   $scope.model.inProgress = true;
