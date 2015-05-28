@@ -1,1 +1,0 @@
-web: cd ng-app && gulp build --env=production && cd .. && rails s

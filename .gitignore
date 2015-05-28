@@ -24,4 +24,5 @@
 /ng-app/node_modules
 /ng-app/.tmp
 
-/public
+# TODO: move building to CI server
+# /public
