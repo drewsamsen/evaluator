@@ -1,5 +1,10 @@
 h3 Login!
 
+pre User: {{ user | json }}
+
+md-button(ng-click='signOut()' ng-disabled='!user.signedIn')
+  | Sign out
+
 md-content(layout="row")
   md-button.contact(ui-sref="layout_app.dashboard" aria-label="Log in")
     md-tooltip Dashboard
