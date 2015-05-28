@@ -9,7 +9,11 @@ angular.module('valueMash')
 
     $scope.attemptRegister = function(credentials) {
       API.register(credentials);
-    }
+    };
+
+    $scope.resetPass = function(credentials) {
+      API.resetPassword(credentials);
+    };
 
     // $scope.loginProcess = function() {
     //   $scope.model.inProgress = true;

@@ -21,6 +21,7 @@ angular.module('valueMash')
   };
 
   var reportErrors = function(resp) {
+    console.warn('reportErrors', resp);
     if (angular.isArray(resp.errors)) {
       Notifier.show(resp.errors[0]);
     }
@@ -39,6 +40,13 @@ angular.module('valueMash')
       $auth.submitRegistration(data)
       .then(function(resp) {
         // something
+      }).catch(function(resp) { reportErrors(resp); });
+    },
+
+    resetPassword: function(data) {
+      $auth.requestPasswordReset(data)
+      .then(function(resp) {
+        //
       }).catch(function(resp) { reportErrors(resp); });
     }
 

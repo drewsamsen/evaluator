@@ -44,3 +44,17 @@ form(layout="row"
 
     md-button.submit-btn.md-raised.md-primary(ng-disabled="signupForm.$invalid")
       | Sign up
+
+form(layout="row"
+  name="resetPassForm"
+  ng-submit="resetPass(reset)"
+  novalidate)
+
+  md-content(layout-padding)
+    div(layout="row")
+      md-input-container
+        label Email
+        input(ng-model="reset.email" required)
+
+    md-button.submit-btn.md-raised.md-primary(ng-disabled="resetPassForm.$invalid")
+      | Request password reset
