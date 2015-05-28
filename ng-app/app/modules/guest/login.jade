@@ -6,11 +6,11 @@ md-content(layout="row")
     | Go to Dashboard
 
   md-button(ng-click="modalTest($event)")
-    | Modal test
+    | Password change modal
 
 form(layout="row"
   name="loginForm"
-  ng-submit="attemptAuth(credentials)"
+  ng-submit="submitLogin(credentials)"
   novalidate)
 
   md-content(layout-padding)
@@ -28,7 +28,7 @@ form(layout="row"
 
 form(layout="row"
   name="signupForm"
-  ng-submit="attemptRegister(signup)"
+  ng-submit="submitRegistration(signup)"
   novalidate)
 
   md-content(layout-padding)
@@ -50,7 +50,7 @@ form(layout="row"
 
 form(layout="row"
   name="resetPassForm"
-  ng-submit="resetPass(reset)"
+  ng-submit="requestPasswordReset(reset)"
   novalidate)
 
   md-content(layout-padding)

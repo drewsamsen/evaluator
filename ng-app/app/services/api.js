@@ -29,27 +29,6 @@ angular.module('valueMash')
 
   var api = {
 
-    login: function(data) {
-      return $auth.submitLogin(data)
-      .then(function(resp) {
-        // console.info('success', resp);
-      }).catch(function(resp) { reportErrors(resp); });
-    },
-
-    register: function(data) {
-      $auth.submitRegistration(data)
-      .then(function(resp) {
-        // something
-      }).catch(function(resp) { reportErrors(resp); });
-    },
-
-    resetPassword: function(data) {
-      $auth.requestPasswordReset(data)
-      .then(function(resp) {
-        //
-      }).catch(function(resp) { reportErrors(resp); });
-    }
-
   };
 
   return api;

@@ -3,18 +3,6 @@
 angular.module('valueMash')
   .controller('LoginCtrl', function ($scope, API, $mdDialog) {
 
-    $scope.attemptAuth = function(credentials) {
-      API.login(credentials);
-    };
-
-    $scope.attemptRegister = function(credentials) {
-      API.register(credentials);
-    };
-
-    $scope.resetPass = function(credentials) {
-      API.resetPassword(credentials);
-    };
-
     $scope.modalTest = function($event) {
       $mdDialog.show({
         controller: 'changePasswordModalCtrl',
