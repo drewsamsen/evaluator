@@ -1,6 +1,8 @@
 h2 Users
 
 div(ng-repeat="user in users" layout="row")
-  div(layout-padding) {{ user.id }}
+  div(layout-padding)
+    i.fa.fa-star(ng-if="user.admin")
+    | {{ user.id }}
   div(layout-padding) {{ user.email }}
   div(layout-padding) {{ user.created_at }}
