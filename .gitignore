@@ -23,3 +23,5 @@
 /ng-app/bower_components
 /ng-app/node_modules
 /ng-app/.tmp
+
+/public
