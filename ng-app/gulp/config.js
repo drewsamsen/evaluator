@@ -20,8 +20,8 @@ gulp.task('config', function () {
   // Patterns that will be replaced
   var patterns = [
     {match: 'env_name', replacement: env},
+    {match: 'api_url', replacement: settings.API_URL}
   ];
-
 
   // Replace each placeholder with the correct value for the variable.
   gulp.src(paths.src + '/config/main.conf.js')

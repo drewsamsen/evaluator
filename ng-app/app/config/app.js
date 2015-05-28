@@ -13,7 +13,7 @@ angular.module('valueMash', [
     'ng-token-auth'
   ])
 
-.config(function($httpProvider, $authProvider, $locationProvider) {
+.config(function($httpProvider, $authProvider, $locationProvider, API_URL) {
 
   $locationProvider.html5Mode(false);
   $locationProvider.hashPrefix('!');
@@ -32,20 +32,15 @@ angular.module('valueMash', [
   $httpProvider.defaults.withCredentials = true;
 
   $authProvider.configure({
-    // apiUrl: 'https://whispering-wildwood-2811.herokuapp.com'
-
-    // Production
-    apiUrl: ''
-
-    // Local dev:
-    // apiUrl: 'http://localhost:3000'
+    apiUrl: API_URL
   });
 
 })
 
-.run(function($rootScope, Notifier, $state, ENV) {
+.run(function($rootScope, Notifier, $state, ENV, API_URL) {
 
   $rootScope.ENV = ENV;
+  $rootScope.API_URL = API_URL;
 
   /**
    * Check access for requested pages. Note the $auth.validateUser() in a state

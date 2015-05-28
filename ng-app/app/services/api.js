@@ -2,7 +2,7 @@
 
 angular.module('valueMash')
 
-.service('API', function($http, $auth, Notifier) {
+.service('API', function($http, $auth, Notifier, API_URL) {
 
   // Query wrapper
   var _query = function(params) {
@@ -14,12 +14,7 @@ angular.module('valueMash')
 
     var http_params = {
       method: params.method,
-
-      // Prod
-      url: '/' + params.url,
-      // Dev
-      // url: 'http://localhost:3000/' + params.url,
-
+      url: API_URL + '/' + params.url,
       data: params.data || null
     };
     return $http(http_params);

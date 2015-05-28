@@ -13,5 +13,6 @@
 angular.module('valueMash')
 
   .constant('ENV', '___env_name')
+  .constant('API_URL', '___api_url')
 
 ;
