@@ -3,39 +3,44 @@ h3 Login!
 md-content(layout="row")
   md-button.contact(ui-sref="layout_app.dashboard" aria-label="Log in")
     md-tooltip Dashboard
-    | Dashboard
+    | Go to Dashboard
 
-  md-button(ng-click="showNotice()")
-    | Show notice test
+form(layout="row"
+  name="loginForm"
+  ng-submit="attemptAuth(credentials)"
+  novalidate)
 
-div(layout="row")
   md-content(layout-padding)
     div(layout="row")
       md-input-container
         label Email
-        input(ng-model="credentials.email")
+        input(ng-model="credentials.email" required)
 
       md-input-container
         label Password
-        input(ng-model="credentials.password" type="password")
+        input(ng-model="credentials.password" type="password" required)
 
-    md-button.md-raised.md-primary(ng-click="attemptAuth(credentials)") Log In
+    md-button.submit-btn.md-raised.md-primary(ng-disabled="loginForm.$invalid")
+      | Log In
 
-div(layout="row")
+form(layout="row"
+  name="signupForm"
+  ng-submit="attemptRegister(signup)"
+  novalidate)
+
   md-content(layout-padding)
     div(layout="row")
       md-input-container
         label Email
-        input(ng-model="signup.email")
+        input(ng-model="signup.email" required)
 
       md-input-container
         label Password
-        input(ng-model="signup.password" type="password")
+        input(ng-model="signup.password" type="password" required)
 
       md-input-container
         label Password Confirmation
-        input(ng-model="signup.password_confirmation" type="password")
+        input(ng-model="signup.password_confirmation" type="password" required)
 
-    md-button.md-raised.md-primary(ng-click="attemptRegister(signup)") Sign up
-
-pre {{ credentials | json }}
+    md-button.submit-btn.md-raised.md-primary(ng-disabled="signupForm.$invalid")
+      | Sign up

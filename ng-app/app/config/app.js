@@ -60,18 +60,18 @@ angular.module('valueMash', [
 
   // $auth login events
   $rootScope.$on('auth:login-success', function(ev, user) {
-    Notifier.show('auth:login-success');
+    console.log('auth:login-success');
   });
   $rootScope.$on('auth:login-error', function(ev, user) {
-    Notifier.show('auth:login-error');
+    console.log('auth:login-error');
   });
 
   // $auth register events
   $rootScope.$on('auth:registration-email-success', function(ev, user) {
-    Notifier.show('auth:registration-email-success');
+    console.log('auth:registration-email-success');
   });
   $rootScope.$on('auth:registration-email-error', function(ev, user) {
-    Notifier.show('auth:registration-email-error');
+    console.log('auth:registration-email-error');
   });
 
 });

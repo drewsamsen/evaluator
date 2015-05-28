@@ -1,18 +1,7 @@
 'use strict';
 
 angular.module('valueMash')
-  .controller('LoginCtrl', function ($scope, $rootScope, $window, $state,
-    CacheFactory, Notifier, API, $auth) {
-
-    $scope.model = {
-      login: '',
-      password: '',
-      inProgress: false
-    };
-
-    $scope.showNotice = function() {
-      Notifier.show('Test please');
-    };
+  .controller('LoginCtrl', function ($scope, API) {
 
     $scope.attemptAuth = function(credentials) {
       API.login(credentials);
