@@ -2,10 +2,7 @@
 
 angular.module('valueMash')
 
-.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
-
-  $locationProvider.html5Mode(false);
-  $locationProvider.hashPrefix('!');
+.config(function($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise('/login');
 
@@ -16,7 +13,6 @@ angular.module('valueMash')
    */
   .state('layout_guest', {
     abstract: true,
-    isPublic: true,
     views: {
       'root': {
         templateUrl: 'modules/layout/layout_guest.html',
@@ -29,8 +25,6 @@ angular.module('valueMash')
     url: '/login',
     templateUrl: 'modules/guest/login.html',
     controller: 'LoginCtrl',
-    guestOnly: true,
-    isPublic: true,
   })
 
   /**
@@ -38,7 +32,6 @@ angular.module('valueMash')
    */
   .state('layout_app', {
     abstract: true,
-    isPublic: false,
     views: {
       'root': {
         templateUrl: 'modules/layout/layout_app.html',
@@ -48,19 +41,20 @@ angular.module('valueMash')
         templateUrl: 'modules/layout/_layout_app_sidebar.html',
         controller: 'LayoutAppCtrl'
       }
-    }
-  })
-
-  .state('layout_app.dashboard', {
-    url: '/dashboard',
-    isPublic: false,
-    templateUrl: 'modules/dashboard/dashboard.html',
-    controller: 'DashboardCtrl',
+    },
+    // Blocks unauthenticated users, redirecting to /login (applies to all
+    // child states also)
     resolve: {
       auth: function($auth) {
         return $auth.validateUser();
       }
     }
+  })
+
+  .state('layout_app.dashboard', {
+    url: '/dashboard',
+    templateUrl: 'modules/dashboard/dashboard.html',
+    controller: 'DashboardCtrl'
   });
 
 });

@@ -2,19 +2,17 @@
 
 angular.module('valueMash')
 
-.service('User', function($auth) {
+.service('User', function() {
 
   var userService = {
 
-    isGuest: function() {
-      console.log($auth.validateUser());
-      return $auth.validateUser();
-    },
+    // isGuest: function() {
+    //   return $rootScope.user.signedIn;
+    // },
 
-    isAuth: function() {
-      console.log(!!$auth.validateUser());
-      return !!$auth.validateUser();
-    }
+    // isAuth: function() {
+    //   return !!$rootScope.user.signedIn;
+    // }
 
   };
 

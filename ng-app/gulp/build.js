@@ -84,7 +84,7 @@ gulp.task('misc', function () {
 });
 
 gulp.task('clean', function (done) {
-  $.del([paths.dist + '/', paths.tmp + '/'], {force: true}, done);
+  $.del([paths.dist + '/'], {force: true}, done);
 });
 
-gulp.task('build', ['html', 'images', 'fonts', 'misc']);
+gulp.task('build', ['clean', 'html', 'images', 'fonts', 'misc']);

@@ -13,7 +13,11 @@ angular.module('valueMash', [
     'ng-token-auth'
   ])
 
-.config(function($httpProvider, $authProvider) {
+.config(function($httpProvider, $authProvider, $locationProvider) {
+
+  $locationProvider.html5Mode(false);
+  $locationProvider.hashPrefix('!');
+
   /**
    * Fix for hotmail.com users (when /#!/ becomes /#%21/)
    */
@@ -34,44 +38,15 @@ angular.module('valueMash', [
 
 })
 
-.run(function($rootScope, Notifier, User, $state) {
+.run(function($rootScope, Notifier, $state) {
 
   /**
-   * Check access for requested pages
+   * Check access for requested pages. Note the $auth.validateUser() in a state
+   * resolve will throw the $stateChangeError if the user is not authenticated
    */
-  $rootScope.$on('$stateChangeStart', function(event, toState) {
-    // if (!toState.isPublic && User.isGuest()) {
-    //   event.preventDefault();
-    //   Notifier.show('Please log in');
-    //   $state.go('layout_guest.login');
-    // }
-  });
-
-  // On page load:
-  $rootScope.$on('auth:validation-success', function(ev, user) {
-    console.log('auth:validation-success');
-  });
-  $rootScope.$on('auth:validation-error', function(ev, user) {
-    console.log('auth:validation-error');
-  });
-  $rootScope.$on('auth:validation-expired', function(ev, user) {
-    console.log('auth:validation-expired');
-  });
-
-  // $auth login events
-  $rootScope.$on('auth:login-success', function(ev, user) {
-    console.log('auth:login-success');
-  });
-  $rootScope.$on('auth:login-error', function(ev, user) {
-    console.log('auth:login-error');
-  });
-
-  // $auth register events
-  $rootScope.$on('auth:registration-email-success', function(ev, user) {
-    console.log('auth:registration-email-success');
-  });
-  $rootScope.$on('auth:registration-email-error', function(ev, user) {
-    console.log('auth:registration-email-error');
+  $rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error){
+    Notifier.show('Please log in');
+    $state.go('layout_guest.login');
   });
 
 });
