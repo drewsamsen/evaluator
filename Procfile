@@ -1,1 +1,1 @@
-build: cd ng-app && gulp build --env=production && cd .. && rails s
+web: cd ng-app && gulp build --env=production && cd .. && rails s
