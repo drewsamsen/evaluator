@@ -8,3 +8,10 @@ body {
 main {
   flex: 1 0 auto;
 }
+
+#toast-container > div {
+  width: 350px !important;
+  height: 80px !important;
+  line-height: 18px !important;
+  padding-left: 30px !important;
+}

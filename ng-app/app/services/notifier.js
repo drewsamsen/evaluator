@@ -7,7 +7,7 @@ angular.module('valueMash')
   var notifierService = {
 
     show: function(message) {
-      Materialize.toast(message, 2000);
+      Materialize.toast(message, 1800);
     }
 
   };
