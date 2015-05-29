@@ -18,6 +18,11 @@ angular.module('valueMash')
     combo: 'left',
     description: 'Select value on the left',
     callback: function() { $scope.score($scope.left, $scope.right); }
+  })
+  .add({
+    combo: 'down',
+    description: 'Skip value matchup',
+    callback: function() { $scope.skipMatch(); }
   });
 
 
@@ -89,6 +94,11 @@ angular.module('valueMash')
         Value.sortValues();
       }
     });
+  };
+
+  $scope.skipMatch = function() {
+    loadNextTwoValues();
+    getMoreValuesIfNeeded();
   };
 
 });
