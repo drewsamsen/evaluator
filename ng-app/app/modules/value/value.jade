@@ -5,11 +5,13 @@ div(ui-view="")
   table.hoverable.bordered
     tr.header
       th(width="20%") ID
+      th Score
       th Name
       th Description
 
     tr.body(ng-repeat="value in values")
       td {{ value.id }}
+      td {{ value.score }}
       td
         a(href="" ui-sref="layout_app.values.show({valueId: value.id})")
           | {{ value.name }}

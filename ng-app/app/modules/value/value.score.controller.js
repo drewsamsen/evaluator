@@ -35,11 +35,11 @@ angular.module('valueMash')
   $scope.left = {};
   $scope.right = {};
 
-  $scope.score = function(winnerId,loserId) {
+  $scope.score = function(winner,loser) {
     loadNextTwoValues();
     getMoreValuesIfNeeded();
 
-    API.values.score(winnerId, loserId)
+    API.values.score(winner, loser)
     .then(function(resp) {
       if (resp.status === 200) {
         console.info('score succeeded');

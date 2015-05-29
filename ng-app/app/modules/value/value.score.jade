@@ -7,11 +7,11 @@ section
     .col.s6
       h4 {{ left.name }}
       h5 {{ left.description }}
-      a.waves-effect.waves-light.btn-large.blue.lighten-5.blue-text(ng-click="score(left.id,right.id)")
+      a.waves-effect.waves-light.btn-large.blue.lighten-5.blue-text(ng-click="score(left,right)")
         | Choose
 
     .col.s6
       h4 {{ right.name }}
       h5 {{ right.description }}
-      a.waves-effect.waves-light.btn-large.blue.lighten-5.blue-text(ng-click="score(right.id,left.id)")
+      a.waves-effect.waves-light.btn-large.blue.lighten-5.blue-text(ng-click="score(right,left)")
         | Choose

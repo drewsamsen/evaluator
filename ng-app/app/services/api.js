@@ -79,13 +79,13 @@ angular.module('valueMash')
         });
       },
 
-      score: function(winnderId, loserId) {
+      score: function(winnerValue, loserValue) {
         return _query({
           method: 'POST',
           url: 'values/score.json',
           data: {
-            winner_id: winnderId,
-            loser_id: loserId
+            winner: winnerValue,
+            loser: loserValue
           }
         })
       }
