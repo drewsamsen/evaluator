@@ -27,7 +27,12 @@ angular.module('valueMash')
           break;
         }
       }
+    },
 
+    sortValues: function() {
+      valueService.values.sort(function(a,b) {
+        return b.score - a.score;
+      });
     }
 
   };

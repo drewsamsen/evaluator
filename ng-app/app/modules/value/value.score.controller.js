@@ -44,6 +44,7 @@ angular.module('valueMash')
       if (resp.status === 200) {
         Value.updateScore(resp.data.winnerId, resp.data.winnerScore);
         Value.updateScore(resp.data.loserId, resp.data.loserScore);
+        Value.sortValues();
       }
     });
   };
