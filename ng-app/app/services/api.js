@@ -70,6 +70,24 @@ angular.module('valueMash')
           url: 'values/'+id+'.json',
           data: data
         });
+      },
+
+      getPlayers: function() {
+        return _query({
+          method: 'GET',
+          url: 'values/players.json'
+        });
+      },
+
+      score: function(winnderId, loserId) {
+        return _query({
+          method: 'POST',
+          url: 'values/score.json',
+          data: {
+            winnderId: winnderId,
+            loserId: loserId
+          }
+        })
       }
 
     }

@@ -10,9 +10,11 @@ Rails.application.routes.draw do
   get 'users' => 'user#index'
 
   get 'values' => 'value#index'
+  get 'values/players' => 'value#players'
   get 'values/:id' => 'value#show'
   put 'values/:id' => 'value#update'
   post 'values' => 'value#create'
+  post 'values/score' => 'value#score'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,0 +1,17 @@
+h4 What do you value?
+
+.divider
+
+section
+  .row
+    .col.s6
+      h4 {{ left.name }}
+      h5 {{ left.description }}
+      a.waves-effect.waves-light.btn-large.blue.lighten-5.blue-text(ng-click="score(left.id,right.id)")
+        | Choose
+
+    .col.s6
+      h4 {{ right.name }}
+      h5 {{ right.description }}
+      a.waves-effect.waves-light.btn-large.blue.lighten-5.blue-text(ng-click="score(right.id,left.id)")
+        | Choose
