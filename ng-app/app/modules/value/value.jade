@@ -1,8 +1,8 @@
 div(ui-view="")
 
-  h2 Values
+  h4 Values
 
-  table.table
+  table.hoverable.bordered
     tr.header
       th(width="20%") ID
       th Name
@@ -15,23 +15,29 @@ div(ui-view="")
           | {{ value.name }}
       td {{ value.description }}
 
-  hr
+  div.row(ng-if="user.admin")
+    .col.s12
+      .card.blue.lighten-4
+        .card-content
+          span.card-title.black-text
+            | Create new Value
 
-  form(layout="row"
-    ng-if="user.admin"
-    name="newValueForm"
-    ng-submit="createValue(newValue);resetForm(newValueForm)"
-    novalidate)
+          form.col.s12(name="newValueForm"
+            ng-submit="createValue(newValue);resetForm(newValueForm)"
+            novalidate)
 
-    md-content(layout-padding)
-      div(layout="row")
-        md-input-container
-          label Name
-          input(ng-model="newValue.name" required)
+            .row
+              .input-field.col.s6
+                  input(ng-model="newValue.name" type="text" required)
+                  label Name
 
-        md-input-container
-          label Description
-          input(ng-model="newValue.description" required)
+              .input-field.col.s6
+                  input(ng-model="newValue.description" type="text" required)
+                  label Description
 
-      md-button.submit-btn.md-raised.md-primary(ng-disabled="newValueForm.$invalid")
-        | Create new Value
+            .row
+              .input-field.col.s12
+                button.waves-effect.waves-light.blue.ligthen-3.white-text.btn(type="submit"
+                  ng-class="{disabled: newValueForm.$invalid}")
+                  | Create new Value
+

@@ -2,7 +2,7 @@
 
 angular.module('valueMash')
 
-.run(function($rootScope, $mdDialog) {
+.run(function($rootScope, $state, Notifier) {
 
   $rootScope.$on('auth:registration-email-success', function(ev, data) {
     console.log('auth:registration-email-success');
@@ -35,10 +35,10 @@ angular.module('valueMash')
   $rootScope.$on('auth:password-reset-confirm-success', function(ev, data) {
     console.log('auth:password-reset-confirm-success');
 
-    $mdDialog.show({
-      controller: 'changePasswordModalCtrl',
-      templateUrl: 'modules/guest/_change_password.modal.html'
-    });
+    // $mdDialog.show({
+    //   controller: 'changePasswordModalCtrl',
+    //   templateUrl: 'modules/guest/_change_password.modal.html'
+    // });
 
   });
 
@@ -52,6 +52,8 @@ angular.module('valueMash')
 
   $rootScope.$on('auth:logout-success', function(ev, data) {
     console.log('auth:logout-success');
+    Notifier.show('Logged out');
+    $state.go('layout_guest.login');
   });
 
   $rootScope.$on('auth:logout-error', function(ev, data) {
@@ -102,16 +104,16 @@ angular.module('valueMash')
     console.log('auth:registration-email-error');
   });
 
-})
-
-.controller('changePasswordModalCtrl', function ($scope, $mdDialog, $rootScope) {
-
-  // Need to pass this along to the rootScope
-  $scope.updatePassword = function(data) {
-    $rootScope.updatePassword(data);
-  }
-
-  $scope.cancel = function () {
-    $mdDialog.hide();
-  };
 });
+
+// .controller('changePasswordModalCtrl', function ($scope, $mdDialog, $rootScope) {
+
+//   // Need to pass this along to the rootScope
+//   $scope.updatePassword = function(data) {
+//     $rootScope.updatePassword(data);
+//   }
+
+//   $scope.cancel = function () {
+//     $mdDialog.hide();
+//   };
+// });

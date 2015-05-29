@@ -2,17 +2,18 @@
 
 angular.module('valueMash')
 
-.service('Notifier', function($mdToast) {
+.service('Notifier', function() {
 
   var notifierService = {
 
     show: function(message) {
-      $mdToast.show(
-        $mdToast.simple()
-        .content(message)
-        .position('top left')
-        .hideDelay(1000)
-      );
+      console.log('Notifier.show('+message+')');
+      // $mdToast.show(
+      //   $mdToast.simple()
+      //   .content(message)
+      //   .position('top left')
+      //   .hideDelay(1000)
+      // );
     }
 
   };

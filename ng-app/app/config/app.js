@@ -1,7 +1,6 @@
 'use strict';
 
 angular.module('valueMash', [
-    'ngMaterial',
     'ngAnimate',
     'ngCookies',
     'ngTouch',

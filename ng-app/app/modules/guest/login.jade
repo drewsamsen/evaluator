@@ -1,68 +1,63 @@
-h3 Login!
+.row
+  a.waves-effect.waves-light.btn.red(ng-click='signOut()' ng-disabled='!user.signedIn')
+    | Sign out
 
-pre User: {{ user | json }}
-
-md-button(ng-click='signOut()' ng-disabled='!user.signedIn')
-  | Sign out
-
-md-content(layout="row")
-  md-button.contact(ui-sref="layout_app.dashboard" aria-label="Log in")
-    md-tooltip Dashboard
+  a.waves-effect.waves-light.btn.red(ui-sref="layout_app.dashboard" aria-label="Log in")
     | Go to Dashboard
-
-  md-button(ng-click="modalTest($event)")
+  a.waves-effect.waves-light.btn.red(ng-click="modalTest($event)")
     | Password change modal
 
-form(layout="row"
-  name="loginForm"
-  ng-submit="submitLogin(credentials)"
-  novalidate)
-
-  md-content(layout-padding)
-    div(layout="row")
-      md-input-container
+div.row
+  form.col.s8(name="loginForm"
+    ng-submit="submitLogin(credentials)"
+    novalidate)
+    .row
+      .input-field.col.s6
+        input(ng-model="credentials.email" type="email" required  ng-minlength="8")
         label Email
-        input(ng-model="credentials.email" required)
-
-      md-input-container
-        label Password
+      .input-field.col.s6
         input(ng-model="credentials.password" type="password" required)
-
-    md-button.submit-btn.md-raised.md-primary(ng-disabled="loginForm.$invalid")
-      | Log In
-
-form(layout="row"
-  name="signupForm"
-  ng-submit="submitRegistration(signup)"
-  novalidate)
-
-  md-content(layout-padding)
-    div(layout="row")
-      md-input-container
-        label Email
-        input(ng-model="signup.email" required)
-
-      md-input-container
         label Password
-        input(ng-model="signup.password" type="password" required)
+    .row
+      .input-field.col.s12
+        button.waves-effect.waves-light.btn(type="submit"
+          ng-class="{disabled: loginForm.$invalid}")
+          | Log In
 
-      md-input-container
-        label Password Confirmation
-        input(ng-model="signup.password_confirmation" type="password" required)
+div.row
+  form.col.s8(name="signupForm"
+    ng-submit="submitRegistration(signup)"
+    novalidate)
 
-    md-button.submit-btn.md-raised.md-primary(ng-disabled="signupForm.$invalid")
-      | Sign up
-
-form(layout="row"
-  name="resetPassForm"
-  ng-submit="requestPasswordReset(reset)"
-  novalidate)
-
-  md-content(layout-padding)
-    div(layout="row")
-      md-input-container
+    .row
+      .input-field.col.s4
+        input(ng-model="signup.email" type="email" required)
         label Email
-        input(ng-model="reset.email" required)
+      .input-field.col.s4
+        input(ng-model="signup.password" type="password" required)
+        label Password
+      .input-field.col.s4
+        input(ng-model="signup.password_confirmation" type="password" required)
+        label Confirmation
+    .row
+      .input-field.col.s6
+        button.waves-effect.waves-light.btn(type="submit"
+          ng-class="{disabled: signupForm.$invalid}")
+          | Sign up
 
-    md-button.submit-btn.md-raised.md-primary(ng-disabled="resetPassForm.$invalid")
-      | Request password reset
+div.row
+  form.col.s8(name="resetPassForm"
+    ng-submit="requestPasswordReset(reset)"
+    novalidate)
+
+    .row
+      .input-field.col.s6
+        input(ng-model="reset.email" type="email" required)
+        label Email
+    .row
+      .input-field.col.s6
+        button.waves-effect.waves-light.btn(type="submit"
+          ng-class="{disabled: resetPassForm.$invalid}")
+          | Request password reset
+
+pre User: {{ user | json }}
