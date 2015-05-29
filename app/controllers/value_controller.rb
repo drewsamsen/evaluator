@@ -66,10 +66,15 @@ class ValueController < ApplicationController
   end
 
   def score
+    @result = MatchResult.create(
+      user_id: current_user.id,
+      winner_id: params[:winner_id],
+      loser_id: params[:loser_id]
+    )
     respond_to do |format|
       format.json {
         render :json => {
-          :score => ''
+          :result => @result
         }
       }
     end

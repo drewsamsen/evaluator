@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   post 'values' => 'value#create'
   post 'values/score' => 'value#score'
 
+  get 'match_results' => 'match_result#index'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -79,6 +79,12 @@ angular.module('valueMash')
     url: '/score',
     templateUrl: 'modules/value/value.score.html',
     controller: 'ValueScoreCtrl'
+  })
+
+  .state('layout_app.match_results', {
+    url: '/match_results',
+    templateUrl: 'modules/match_result/match_result.html',
+    controller: 'MatchResultCtrl'
   });
 
 });

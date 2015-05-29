@@ -84,10 +84,21 @@ angular.module('valueMash')
           method: 'POST',
           url: 'values/score.json',
           data: {
-            winnderId: winnderId,
-            loserId: loserId
+            winner_id: winnderId,
+            loser_id: loserId
           }
         })
+      }
+
+    },
+
+    match_results: {
+
+      all: function() {
+        return _query({
+          method: 'GET',
+          url: 'match_results.json'
+        });
       }
 
     }

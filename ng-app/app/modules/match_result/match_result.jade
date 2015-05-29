@@ -1,0 +1,17 @@
+h4 Users
+
+table.hoverable
+  thead
+    tr
+      th ID
+      th User Id
+      th Winner Id
+      th Loser Id
+      th Match Time
+  tbody
+    tr(ng-repeat="result in results")
+      td {{ result.id }}
+      th {{ result.user_id }}
+      td {{ result.winner_id }}
+      td {{ result.loser_id }}
+      td {{ result.created_at }}
