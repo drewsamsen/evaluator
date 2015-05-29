@@ -5,8 +5,10 @@ div(ui-view="")
   table.hoverable.bordered
     tr.header
       th Value
-      th Score
-      th (vs all users)
+      th
+        a(href="" ng-click="sort('score')") Score
+      th
+        a(href="" ng-click="sort('average')") (vs all users)
       th Description
       th ID
 
