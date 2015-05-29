@@ -9,6 +9,13 @@ angular.module('valueMash')
   var loadNextTwoValues = function() {
     $scope.left = valueStack.shift();
     $scope.right = valueStack.shift();
+
+    // shift again if the values are the same (prevent same value against itself)
+    if ($scope.left.id === $scope.right.id) {
+      valueStack.push($scope.right);
+      $scope.right = valueStack.shift();
+    }
+
     console.log('stack size: ' + valueStack.length);
   };
 
