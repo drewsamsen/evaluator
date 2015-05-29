@@ -8,7 +8,6 @@ angular.module('valueMash')
 
   // For sorting
   $scope.sortDir = 1;
-  $scope.sortField;
 
   Value.getValues();
 
@@ -30,22 +29,24 @@ angular.module('valueMash')
     }
   }
 
-  $scope.sort = function(field) {
-    // If we are sorting again by the currently sorted field, reverse directions
-    if ($scope.sortField === field) {
-      $scope.sortDir = $scope.sortDir * -1;
-
-    // Otherwise reset sort direction
-    } else {
-      $scope.sortDir = 1;
-    }
-
-    $scope.sortField = field;
-
+  $scope.sortScore = function() {
+    // Always flip sort direction. meh.
+    $scope.sortDir = $scope.sortDir * -1;
     Value.values.sort(function(a, b) {
-      return a[field] + ($scope.sortDir * b[field]);
+      return a.score + ($scope.sortDir * b.score);
     });
+  }
 
+  $scope.sortAverageDiff = function() {
+    var aDiff, bDiff;
+    // Always flip sort direction. meh.
+    $scope.sortDir = $scope.sortDir * -1;
+    Value.values.sort(function(a, b) {
+      // Make them all positive for ease of sorting...
+      aDiff = a.score - a.average + 1000;
+      bDiff = b.score - b.average + 1000;
+      return aDiff + ($scope.sortDir * bDiff);
+    });
   }
 
 });
