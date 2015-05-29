@@ -33,7 +33,7 @@ angular.module('valueMash')
     // Always flip sort direction. meh.
     $scope.sortDir = $scope.sortDir * -1;
     Value.values.sort(function(a, b) {
-      return a.score + ($scope.sortDir * b.score);
+      return $scope.sortDir * (b.score - a.score);
     });
   }
 
@@ -45,7 +45,7 @@ angular.module('valueMash')
       // Make them all positive for ease of sorting...
       aDiff = a.score - a.average + 1000;
       bDiff = b.score - b.average + 1000;
-      return aDiff + ($scope.sortDir * bDiff);
+      return $scope.sortDir * (bDiff - aDiff);
     });
   }
 
