@@ -1,15 +1,15 @@
 'use strict';
 
 angular.module('valueMash')
-  .controller('LoginCtrl', function ($scope, API) {
+  .controller('LoginCtrl', function ($scope, API, Notifier) {
 
     $scope.modalTest = function($event) {
-      // $mdDialog.show({
-      //   controller: 'changePasswordModalCtrl',
-      //   templateUrl: 'modules/guest/_change_password.modal.html',
-      //   targetEvent: $event
-      // });
+      $('#change-pw-modal').openModal();
     }
+
+    $scope.testNotices = function(msg) {
+      Notifier.show(msg);
+    };
 
     // $scope.loginProcess = function() {
     //   $scope.model.inProgress = true;

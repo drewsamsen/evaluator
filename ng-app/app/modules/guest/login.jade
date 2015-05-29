@@ -1,10 +1,7 @@
 .row
-  a.waves-effect.waves-light.btn.red(ng-click='signOut()' ng-disabled='!user.signedIn')
-    | Sign out
-
-  a.waves-effect.waves-light.btn.red(ui-sref="layout_app.dashboard" aria-label="Log in")
-    | Go to Dashboard
-  a.waves-effect.waves-light.btn.red(ng-click="modalTest($event)")
+  a.waves-effect.waves-light.btn.green.lighten-1(ui-sref="layout_app.dashboard" aria-label="Log in")
+    | Dashboard
+  a.waves-effect.waves-light.btn.green.lighten-1(ng-click="modalTest($event)")
     | Password change modal
 
 div.row
@@ -61,3 +58,5 @@ div.row
           | Request password reset
 
 pre User: {{ user | json }}
+
+include _change_password_modal

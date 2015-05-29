@@ -34,12 +34,7 @@ angular.module('valueMash')
 
   $rootScope.$on('auth:password-reset-confirm-success', function(ev, data) {
     console.log('auth:password-reset-confirm-success');
-
-    // $mdDialog.show({
-    //   controller: 'changePasswordModalCtrl',
-    //   templateUrl: 'modules/guest/_change_password.modal.html'
-    // });
-
+    $('change-pw-modal').openModal();
   });
 
   $rootScope.$on('auth:password-change-success', function(ev, data) {
@@ -105,15 +100,3 @@ angular.module('valueMash')
   });
 
 });
-
-// .controller('changePasswordModalCtrl', function ($scope, $mdDialog, $rootScope) {
-
-//   // Need to pass this along to the rootScope
-//   $scope.updatePassword = function(data) {
-//     $rootScope.updatePassword(data);
-//   }
-
-//   $scope.cancel = function () {
-//     $mdDialog.hide();
-//   };
-// });
