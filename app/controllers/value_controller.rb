@@ -4,6 +4,7 @@ class ValueController < ApplicationController
   before_filter :get_values, only: [:index, :players]
 
   def index
+    @values = decorate_with_site_averages(@values)
     respond_to do |format|
       format.json {
         render :json => {
@@ -143,6 +144,15 @@ class ValueController < ApplicationController
     # Sort with highest value items first
     @values.to_a.sort_by! {|v| -v['score'] }
 
+  end
+
+  def decorate_with_site_averages(values)
+    values.each do |value|
+      scores = Score.where(value_id: value['id'])
+      average_score = scores.collect(&:score).inject(&:+) / scores.length
+      value["average"] = average_score
+    end
+    values
   end
 
   def calculate_scores(winner, loser)

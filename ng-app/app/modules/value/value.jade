@@ -4,18 +4,26 @@ div(ui-view="")
 
   table.hoverable.bordered
     tr.header
-      th(width="20%") ID
+      th Value
       th Score
-      th Name
+      th (vs all users)
       th Description
+      th ID
 
-    tr.body(ng-repeat="value in Value.values")
-      td {{ value.id }}
-      td {{ value.score }}
+    tr.body(ng-repeat="value in Value.values"
+      ng-init="diff = value.score - value.average")
+
       td
         a(href="" ui-sref="layout_app.values.show({valueId: value.id})")
           | {{ value.name }}
+      td {{ value.score }}
+      td
+        span(ng-if="diff != 0" ng-class="{'red-text': diff < 0, 'green-text': diff > 0}")
+          span(ng-if="diff > 0")
+            | +
+          {{ diff }}
       td {{ value.description }}
+      td {{ value.id }}
 
   div.row(ng-if="user.admin")
     .col.s12
@@ -42,4 +50,3 @@ div(ui-view="")
                 button.waves-effect.waves-light.blue.ligthen-3.white-text.btn(type="submit"
                   ng-class="{disabled: newValueForm.$invalid}")
                   | Create new Value
-
