@@ -36,10 +36,14 @@ angular.module('valueMash', [
 
 })
 
-.run(function($rootScope, Notifier, $state, ENV, API_URL) {
+.run(function($rootScope, Notifier, $state, ENV, API_URL, Value) {
 
   $rootScope.ENV = ENV;
   $rootScope.API_URL = API_URL;
+
+  // Get a reference to the Value service onto $rootScope so that it can be used
+  // directly from the views.
+  $rootScope.Value = Value;
 
   /**
    * Check access for requested pages. Note the $auth.validateUser() in a state

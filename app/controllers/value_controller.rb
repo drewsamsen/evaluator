@@ -107,7 +107,10 @@ class ValueController < ApplicationController
     respond_to do |format|
       format.json {
         render :json => {
-          :result => @result
+          winnerId: winner[:id],
+          winnerScore: new_winner_score,
+          loserId: loser[:id],
+          loserScore: new_loser_score
         }
       }
     end
@@ -124,6 +127,7 @@ class ValueController < ApplicationController
       scores_as_hash[score.value_id] = score
     end
 
+    # TODO 'attributes' is an expensive method, I think...
     @values.to_a.map!{ |v| v.attributes }
 
     # If there is a score for this value, get it, otherwise use default value

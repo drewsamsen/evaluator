@@ -2,14 +2,11 @@
 
 angular.module('valueMash')
 
-.controller('ValueCtrl', function($scope, API, Notifier) {
+.controller('ValueCtrl', function($scope, API, Notifier, Value) {
 
-  $scope.values = [];
   $scope.newValue = {};
 
-  API.values.all().then(function(resp) {
-    $scope.values = resp.data.values;
-  });
+  Value.getValues();
 
   $scope.createValue = function(data) {
     API.values.create(data)
@@ -17,7 +14,7 @@ angular.module('valueMash')
       if (resp.status === 200) {
         Notifier.show('Success: Added new value');
         $scope.newValue = {};
-        $scope.values.push(resp.data.value);
+        Value.values.push(resp.data.value);
       }
     });
   }

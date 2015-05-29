@@ -2,7 +2,7 @@
 
 angular.module('valueMash')
 
-.controller('ValueScoreCtrl', function($scope, API) {
+.controller('ValueScoreCtrl', function($scope, API, Value) {
 
   var valueStack = [];
 
@@ -42,7 +42,8 @@ angular.module('valueMash')
     API.values.score(winner, loser)
     .then(function(resp) {
       if (resp.status === 200) {
-        console.info('score succeeded');
+        Value.updateScore(resp.data.winnerId, resp.data.winnerScore);
+        Value.updateScore(resp.data.loserId, resp.data.loserScore);
       }
     });
   };
