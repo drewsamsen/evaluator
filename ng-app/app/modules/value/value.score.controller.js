@@ -2,9 +2,35 @@
 
 angular.module('valueMash')
 
-.controller('ValueScoreCtrl', function($scope, API, Value) {
+.controller('ValueScoreCtrl', function($scope, API, Value, hotkeys) {
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - -
+  // Keyboard shortcuts
+  // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  hotkeys.bindTo($scope)
+  .add({
+    combo: 'right',
+    description: 'Select value on the right',
+    callback: function() { $scope.score($scope.right, $scope.left); }
+  })
+  .add({
+    combo: 'left',
+    description: 'Select value on the left',
+    callback: function() { $scope.score($scope.left, $scope.right); }
+  });
+
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - -
+  // Store some data
+  // - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   var valueStack = [];
+
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - -
+  // Private methods
+  // - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   var loadNextTwoValues = function() {
     $scope.left = valueStack.shift();
@@ -37,10 +63,19 @@ angular.module('valueMash')
     });
   };
 
-  getSomeValues().then(loadNextTwoValues);
 
+  // - - - - - - - - - - - - - - - - - - - - - - - - - -
+  // On-Load bootstrapping
+  // - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  getSomeValues().then(loadNextTwoValues);
   $scope.left = {};
   $scope.right = {};
+
+
+  // - - - - - - - - - - - - - - - - - - - - - - - - - -
+  // Public methods
+  // - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   $scope.score = function(winner,loser) {
     loadNextTwoValues();

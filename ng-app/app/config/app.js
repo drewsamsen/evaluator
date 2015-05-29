@@ -2,14 +2,13 @@
 
 angular.module('valueMash', [
     'ngAnimate',
-    'ngCookies',
     'ngTouch',
     'ngSanitize',
     'ui.router',
     'ngStorage',
-    'toaster',
     'angular-cache',
-    'ng-token-auth'
+    'ng-token-auth',
+    'cfp.hotkeys'
   ])
 
 .config(function($httpProvider, $authProvider, $locationProvider, API_URL) {
