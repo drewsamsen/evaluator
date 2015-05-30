@@ -1,62 +1,77 @@
-.row
-  a.waves-effect.waves-light.btn.green.lighten-1(ui-sref="layout_app.dashboard" aria-label="Log in")
-    | Dashboard
-  a.waves-effect.waves-light.btn.green.lighten-1(ng-click="modalTest($event)")
-    | Password change modal
+section
+  h5 Log In
+  .row
+    form.col.s8(name="loginForm"
+      ng-submit="submitLogin(credentials)"
+      novalidate)
+      .row
+        .input-field.col.s6
+          input(ng-model="credentials.email" type="email" required  ng-minlength="8")
+          label Email
+        .input-field.col.s6
+          input(ng-model="credentials.password" type="password" required)
+          label Password
+      .row
+        .input-field.col.s12
+          button.waves-effect.waves-light.btn(type="submit"
+            ng-class="{disabled: loginForm.$invalid}")
+            | Log In
 
-div.row
-  form.col.s8(name="loginForm"
-    ng-submit="submitLogin(credentials)"
-    novalidate)
-    .row
-      .input-field.col.s6
-        input(ng-model="credentials.email" type="email" required  ng-minlength="8")
-        label Email
-      .input-field.col.s6
-        input(ng-model="credentials.password" type="password" required)
-        label Password
-    .row
-      .input-field.col.s12
-        button.waves-effect.waves-light.btn(type="submit"
-          ng-class="{disabled: loginForm.$invalid}")
-          | Log In
+.divider
 
-div.row
-  form.col.s8(name="signupForm"
-    ng-submit="submitRegistration(signup)"
-    novalidate)
+section
+  h5 Sign Up
+  .row
+    form.col.s8(name="signupForm"
+      ng-submit="submitRegistration(signup)"
+      novalidate)
 
-    .row
-      .input-field.col.s4
-        input(ng-model="signup.email" type="email" required)
-        label Email
-      .input-field.col.s4
-        input(ng-model="signup.password" type="password" required)
-        label Password
-      .input-field.col.s4
-        input(ng-model="signup.password_confirmation" type="password" required)
-        label Confirmation
-    .row
-      .input-field.col.s6
-        button.waves-effect.waves-light.btn(type="submit"
-          ng-class="{disabled: signupForm.$invalid}")
-          | Sign up
+      .row
+        .input-field.col.s4
+          input(ng-model="signup.email" type="email" required)
+          label Email
+        .input-field.col.s4
+          input(ng-model="signup.password" type="password" required)
+          label Password
+        .input-field.col.s4
+          input(ng-model="signup.password_confirmation" type="password" required)
+          label Confirmation
+      .row
+        .input-field.col.s6
+          button.waves-effect.waves-light.btn(type="submit"
+            ng-class="{disabled: signupForm.$invalid}")
+            | Sign up
 
-div.row
-  form.col.s8(name="resetPassForm"
-    ng-submit="requestPasswordReset(reset)"
-    novalidate)
+.divider
 
-    .row
-      .input-field.col.s6
-        input(ng-model="reset.email" type="email" required)
-        label Email
-    .row
-      .input-field.col.s6
-        button.waves-effect.waves-light.btn(type="submit"
-          ng-class="{disabled: resetPassForm.$invalid}")
-          | Request password reset
+section
+  h5 Reset Password
+  .row
+    form.col.s8(name="resetPassForm"
+      ng-submit="requestPasswordReset(reset)"
+      novalidate)
 
-pre User: {{ user | json }}
+      .row
+        .input-field.col.s6
+          input(ng-model="reset.email" type="email" required)
+          label Email
+      .row
+        .input-field.col.s6
+          button.waves-effect.waves-light.btn(type="submit"
+            ng-class="{disabled: resetPassForm.$invalid}")
+            | Request password reset email
+
+.divider
+
+section
+  h6 Current User
+  pre User: {{ user | json }}
+
+.divider
+
+section
+  p
+    a(ng-click="modalTest($event)")
+      | Password change modal
 
 include _change_password_modal

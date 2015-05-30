@@ -1,16 +1,20 @@
-.collection
-
-  a.collection-item(ui-sref="layout_app.dashboard")
+li.logo.blue.lighten-3
+  a(href="" ui-sref="layout_app.dashboard") Evaluator App
+li(ui-sref-active-eq="active")
+  a(ui-sref="layout_guest.login")
+    | Auth Page
+li(ui-sref-active-eq="active")
+  a(ui-sref="layout_app.dashboard")
     | Dashboard
-
-  a.collection-item(ui-sref="layout_app.users")
+li(ui-sref-active-eq="active")
+  a(ui-sref="layout_app.users")
     | Users
-
-  a.collection-item(ui-sref="layout_app.values")
+li(ui-sref-active-eq="active")
+  a(ui-sref="layout_app.values")
     | Values
-
-  a.collection-item(ui-sref="layout_app.values.score")
+li(ui-sref-active-eq="active")
+  a(ui-sref="layout_app.values.score")
     | Play
-
-  a.collection-item(ui-sref="layout_app.match_results")
+li(ui-sref-active-eq="active")
+  a(ui-sref="layout_app.match_results")
     | Match results

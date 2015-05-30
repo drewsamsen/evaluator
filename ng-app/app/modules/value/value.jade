@@ -23,7 +23,7 @@ div(ui-view="")
         span(ng-if="diff != 0" ng-class="{'red-text': diff < 0, 'green-text': diff > 0}")
           span(ng-if="diff > 0")
             | +
-          {{ diff }}
+          | {{ diff }}
       td {{ value.description }}
       td {{ value.id }}
 

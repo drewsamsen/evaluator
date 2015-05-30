@@ -1,0 +1,14 @@
+.nav-wrapper
+  ul.right.hide-on-med-and-down
+    li(ng-show='user.signedIn')
+      a(href='#')
+        i.fa.fa-user.right
+        |  Hello, {{ user.email }}
+    li(ng-hide='user.signedIn')
+      a(href='#', ui-sref='layout_guest.login')
+        i.fa.fa-user.right
+        |  Login / Sign up
+    li(ng-show='user.signedIn')
+      a(href='#', ng-click='signOut()')
+        i.fa.fa-chain-broken.right
+        |  Sign out

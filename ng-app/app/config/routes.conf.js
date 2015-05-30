@@ -17,6 +17,14 @@ angular.module('valueMash')
       'root': {
         templateUrl: 'modules/layout/layout_guest.html',
         controller: 'LayoutGuestCtrl'
+      },
+      'sidebar': {
+        templateUrl: 'modules/layout/_layout_app_sidebar.html',
+        controller: 'LayoutAppCtrl'
+      },
+      'header': {
+        templateUrl: 'modules/layout/_layout_app_header.html',
+        controller: 'LayoutAppCtrl'
       }
     }
   })
@@ -37,8 +45,16 @@ angular.module('valueMash')
         templateUrl: 'modules/layout/layout_app.html',
         controller: 'LayoutAppCtrl'
       },
-      'sidebar@layout_app': {
+      'sidebar': {
         templateUrl: 'modules/layout/_layout_app_sidebar.html',
+        controller: 'LayoutAppCtrl'
+      },
+      'header': {
+        templateUrl: 'modules/layout/_layout_app_header.html',
+        controller: 'LayoutAppCtrl'
+      },
+      'footer': {
+        templateUrl: 'modules/layout/_layout_app_footer.html',
         controller: 'LayoutAppCtrl'
       }
     },
