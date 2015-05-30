@@ -13,5 +13,5 @@ table.hoverable
       th
         i.fa.fa-star(ng-if="user.admin")
       td {{ user.email }}
-      td {{ user.created_at }}
+      td {{ user.created_at | date:'medium' }}
 

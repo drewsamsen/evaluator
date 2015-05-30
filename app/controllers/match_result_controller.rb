@@ -3,8 +3,7 @@ class MatchResultController < ApplicationController
   before_filter :check_admin
 
   def index
-    results = MatchResult.all.order(created_at: :asc)
-
+    results = MatchResult.all.order(id: :desc).limit(20);
     respond_to do |format|
       format.json {
         render :json => {
@@ -12,6 +11,5 @@ class MatchResultController < ApplicationController
         }
       }
     end
-
   end
 end
