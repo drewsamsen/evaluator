@@ -1,28 +1,40 @@
-h4 What do you value?
+section
+  h4 What do you value?
 
-p Wanna go fast? Show keyboard shortcuts: <strong>Shift+?</strong>
+  p.grey-text Go faster with keyboard shortcuts: Press '?' for keymap.
 
-.divider
-
+.divider(ng-style="{'margin-bottom': '20px'}")
 section
   .row
     .col.s6
-      h4 {{ left.name }}
-      h5 {{ left.description }}
-      a.waves-effect.waves-light.btn-large.blue.lighten-5.blue-text(ng-click="score(left,right)")
-        | Choose
+      .card.amber.lighten-5
+        .card-content
+          h4.black-text {{ left.name }}
+          h6 {{ left.description }}
+        .card-action.amber.lighten-4.show-clickable.right-align(ng-click="score(left,right)"
+          ng-class="{'lighten-3': hoverLeft}"
+          ng-mouseenter="hoverLeft = true"
+          ng-mouseleave="hoverLeft = false")
+          a.blue-text
+            | Select&nbsp;
+            i.fa.fa-check
 
     .col.s6
-      h4 {{ right.name }}
-      h5 {{ right.description }}
-      a.waves-effect.waves-light.btn-large.blue.lighten-5.blue-text(ng-click="score(right,left)")
-        | Choose
+      .card.amber.lighten-5
+        .card-content
+          h4.black-text {{ right.name }}
+          h6 {{ right.description }}
+        .card-action.amber.lighten-4.show-clickable.right-align(ng-click="score(right,left)"
+          ng-class="{'lighten-3': hoverRight}"
+          ng-mouseenter="hoverRight = true"
+          ng-mouseleave="hoverRight = false")
+          a.blue-text
+            | Select&nbsp;
+            i.fa.fa-check
 
-p &nbsp;
-p &nbsp;
 
 .divider
-section
-  p Too close to call?
-    a.waves-effect.waves-teal.btn-flat(ng-click="skipMatch()")
-      | Skip
+section.grey-text
+  p Too close to call?&nbsp;&nbsp;&nbsp;
+    a.waves-effect.waves-teal.btn-flat.grey.lighten-3(ng-click="skipMatch()")
+      | Skip both
