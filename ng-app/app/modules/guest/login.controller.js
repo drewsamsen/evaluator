@@ -3,12 +3,16 @@
 angular.module('valueMash')
   .controller('LoginCtrl', function ($scope, API, Notifier) {
 
-    $scope.modalTest = function($event) {
+    $scope.modalTest = function() {
       $('#change-pw-modal').openModal();
     }
 
     $scope.testNotices = function(msg) {
       Notifier.show(msg);
+    };
+
+    $scope.forgotPassword = function() {
+      $('#forgot-pw-modal').openModal();
     };
 
     // $scope.loginProcess = function() {

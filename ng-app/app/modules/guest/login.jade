@@ -1,77 +1,84 @@
 section
-  h4.grey-text.text-darken-1 Log In
+  h5.grey-text.text-darken-1
+    | What is this?
+  p An experiment. I'm curious about values. My own and others.
+  p
+    i.fa.fa-quote-left.grey-text&nbsp;
+    | How do I value freedom compared with stability or safety?&nbsp;
+    i.fa.fa-quote-right.grey-text
+  p What we value guides our lives. What we prioritize. How we set goals. And
+    | ultimately what makes us happy.
+
+.divider(ng-style="{'margin-bottom': '15px'}")
+
+section
   .row
-    form.col.s8(name="loginForm"
-      ng-submit="submitLogin(credentials)"
-      novalidate)
-      .row
-        .input-field.col.s6
-          input(ng-model="credentials.email" type="email" required  ng-minlength="8")
-          label Email
-        .input-field.col.s6
-          input(ng-model="credentials.password" type="password" required)
-          label Password
-      .row
-        .input-field.col.s12
-          button.waves-effect.waves-light.btn(type="submit"
-            ng-class="{disabled: loginForm.$invalid}")
-            | Log In
+    .col.s6
+      .card.amber.lighten-5
+        .card-content
+          h5 Log in
+
+          form(name="loginForm"
+            ng-submit="submitLogin(credentials)"
+            novalidate)
+            .row
+              .input-field.col.s12
+                input(ng-model="credentials.email" type="email" required  ng-minlength="8")
+                label Email
+            .row
+              .input-field.col.s12
+                input(ng-model="credentials.password" type="password" required)
+                label Password
+            .row
+              .input-field.col.s12
+                button.waves-effect.waves-light.btn(type="submit"
+                  ng-class="{disabled: loginForm.$invalid}")
+                  | Log In
+                | &nbsp;&nbsp;&nbsp;
+                a(href="" ng-click="forgotPassword()").blue-text.text-lighten-3 Forgot your password?
+
+    .col.s6
+      .card.amber.lighten-5
+        .card-content
+          h5 Sign up
+
+          form(name="signupForm"
+            ng-submit="submitRegistration(signup)"
+            novalidate)
+
+            .row
+              .input-field.col.s12
+                input(ng-model="signup.email" type="email" required)
+                label Email
+            .row
+              .input-field.col.s6
+                input(ng-model="signup.password" type="password" required)
+                label Password
+              .input-field.col.s6
+                input(ng-model="signup.password_confirmation" type="password" required)
+                label Confirmation
+            .row
+              .input-field.col.s6
+                button.waves-effect.waves-light.btn(type="submit"
+                  ng-class="{disabled: signupForm.$invalid}")
+                  | Sign up
 
 .divider
 
 section
-  h4.grey-text.text-darken-1 Sign Up
-  .row
-    form.col.s8(name="signupForm"
-      ng-submit="submitRegistration(signup)"
-      novalidate)
+  p.grey-text
+    i.fa.fa-code&nbsp;
+    | Want to help? drewsamsen@gmail.com
 
-      .row
-        .input-field.col.s4
-          input(ng-model="signup.email" type="email" required)
-          label Email
-        .input-field.col.s4
-          input(ng-model="signup.password" type="password" required)
-          label Password
-        .input-field.col.s4
-          input(ng-model="signup.password_confirmation" type="password" required)
-          label Confirmation
-      .row
-        .input-field.col.s6
-          button.waves-effect.waves-light.btn(type="submit"
-            ng-class="{disabled: signupForm.$invalid}")
-            | Sign up
 
-.divider
-
-section
-  h4.grey-text.text-darken-1 Reset Password
-  .row
-    form.col.s8(name="resetPassForm"
-      ng-submit="requestPasswordReset(reset)"
-      novalidate)
-
-      .row
-        .input-field.col.s6
-          input(ng-model="reset.email" type="email" required)
-          label Email
-      .row
-        .input-field.col.s6
-          button.waves-effect.waves-light.btn(type="submit"
-            ng-class="{disabled: resetPassForm.$invalid}")
-            | Request password reset email
-
-.divider
-
-section
+section.white-text
   h6 Current User
   pre User: {{ user | json }}
 
-.divider
-
 section
   p
-    a(ng-click="modalTest($event)")
+    a(ng-click="modalTest($event)").white-text
       | Password change modal
 
 include _change_password_modal
+include _forgot_password_modal
