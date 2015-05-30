@@ -1,3 +1,5 @@
+@import 'variables';
+
 /* makes the footer sticky at the bottom of page */
 body {
   display: flex;
@@ -26,4 +28,13 @@ header, main, footer {
 
 .show-clickable {
   cursor: pointer;
+}
+
+.side-nav li {
+  &:hover, &:active {
+    background-color: $blue-lighten-5 !important;
+  }
+  i {
+    margin-right: 12px;
+  }
 }

@@ -1,54 +1,70 @@
 div(ui-view="")
 
-  h4 Values
+  section
 
-  table.hoverable.bordered
-    tr.header
-      th Value
-      th
-        a(href="" ng-click="sortScore()") Score
-      th
-        a(href="" ng-click="sortAverageDiff()") (vs all users)
-      th Description
-      th ID
+    h4.grey-text.text-darken-1
+      | Values
 
-    tr.body(ng-repeat="value in Value.values"
-      ng-init="diff = value.score - value.average")
+    table.hoverable.bordered
+      tr.header.grey-text.text-lighten-1
+        th Value
+        th
+          a(href="" ng-click="sortScore()").grey-text.text-lighten-1
+            span.blue-text.text-lighten-2.blue.lighten-5(ng-style="{padding: '4px 16px'}")
+              | Score&nbsp;&nbsp;
+              i.fa.fa-sort
+        th
+          a(href="" ng-click="sortAverageDiff()").grey-text.text-lighten-1
+            span.blue-text.text-lighten-2.blue.lighten-5(ng-style="{padding: '4px 16px'}")
+              | Versus site average&nbsp;&nbsp;
+              i.fa.fa-sort
+        th Description
+        th ID
 
-      td
-        a(href="" ui-sref="layout_app.values.show({valueId: value.id})")
-          | {{ value.name }}
-      td {{ value.score }}
-      td
-        span(ng-if="diff != 0" ng-class="{'red-text': diff < 0, 'green-text': diff > 0}")
-          span(ng-if="diff > 0")
-            | +
-          | {{ diff }}
-      td {{ value.description }}
-      td {{ value.id }}
+      tr.body(ng-repeat="value in Value.values"
+        ng-init="diff = value.score - value.average")
 
-  div.row(ng-if="user.admin")
-    .col.s12
-      .card.blue.lighten-4
-        .card-content
-          span.card-title.black-text
-            | Create new Value
+        td
+          a(href="" ui-sref="layout_app.values.show({valueId: value.id})")
+            | {{ value.name }}
+        td {{ value.score }}
+        td
+          span(ng-if="diff != 0" ng-class="{'red-text': diff < 0, 'green-text': diff > 0}")
+            span(ng-if="diff > 0")
+              | +
+            | {{ diff }}
+        td {{ value.description }}
+        td {{ value.id }}
 
-          form.col.s12(name="newValueForm"
-            ng-submit="createValue(newValue);resetForm(newValueForm)"
-            novalidate)
 
-            .row
-              .input-field.col.s6
-                  input(ng-model="newValue.name" type="text" required)
-                  label Name
+  a.btn.blue.lighten-5.blue-text.text-lighten-4(href=""
+    ng-click="addingNew = !addingNew" ng-style="{'margin-top': '25px'}")
+    | &nbsp;Add value&nbsp;
+    i.fa.fa-plus-circle.right
 
-              .input-field.col.s6
-                  input(ng-model="newValue.description" type="text" required)
-                  label Description
+  section(ng-if="user.admin" ng-show="addingNew")
+    .row
+      .col.s12
+        .card.blue.lighten-5
+          .card-content
+            span.card-title.blue-text
+              | Create new value
 
-            .row
-              .input-field.col.s12
-                button.waves-effect.waves-light.blue.ligthen-3.white-text.btn(type="submit"
-                  ng-class="{disabled: newValueForm.$invalid}")
-                  | Create new Value
+            form.col.s12(name="newValueForm"
+              ng-submit="createValue(newValue);resetForm(newValueForm)"
+              novalidate)
+
+              .row
+                .input-field.col.s6
+                    input(ng-model="newValue.name" type="text" required)
+                    label Name
+
+                .input-field.col.s6
+                    input(ng-model="newValue.description" type="text" required)
+                    label Description
+
+              .row
+                .input-field.col.s12
+                  button.waves-effect.waves-light.blue.lighten-4.blue-text.btn(type="submit"
+                    ng-class="{disabled: newValueForm.$invalid}")
+                    | Create new Value

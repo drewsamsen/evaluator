@@ -1,20 +1,27 @@
-li.logo.blue.lighten-3
-  a(href="" ui-sref="layout_app.dashboard") Evaluator App
-li(ui-sref-active-eq="active")
-  a(ui-sref="layout_guest.login")
-    | Auth Page
-li(ui-sref-active-eq="active")
+li.logo.blue.lighten-1
+  a(href="" ui-sref="layout_app.dashboard")
+
+li(ui-sref-active-eq="blue lighten-5")
   a(ui-sref="layout_app.dashboard")
+    i.fa.fa-gears.blue-text.text-lighten-3
     | Dashboard
-li(ui-sref-active-eq="active")
+li(ui-sref-active-eq="blue lighten-5")
+  a(ui-sref="layout_guest.login")
+    i.fa.fa-unlock-alt.blue-text.text-lighten-3
+    | Authentication
+li(ui-sref-active-eq="blue lighten-5")
   a(ui-sref="layout_app.users")
+    i.fa.fa-users.blue-text.text-lighten-3
     | Users
-li(ui-sref-active-eq="active")
+li(ui-sref-active-eq="blue lighten-5")
   a(ui-sref="layout_app.values")
+    i.fa.fa-diamond.blue-text.text-lighten-3
     | Values
-li(ui-sref-active-eq="active")
+li(ui-sref-active-eq="blue lighten-5")
   a(ui-sref="layout_app.values.score")
+    i.fa.fa-gamepad.blue-text.text-lighten-3
     | Play
-li(ui-sref-active-eq="active")
+li(ui-sref-active-eq="blue lighten-5")
   a(ui-sref="layout_app.match_results")
+    i.fa.fa-th-list.blue-text.text-lighten-3
     | Match results

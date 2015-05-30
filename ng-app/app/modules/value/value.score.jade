@@ -1,5 +1,5 @@
 section
-  h4 What do you value?
+  h4.grey-text.text-darken-1 What do you value?
 
   p.grey-text Go faster with keyboard shortcuts: Press '?' for keymap.
 
@@ -9,7 +9,7 @@ section
     .col.s6
       .card.amber.lighten-5
         .card-content
-          h4.black-text {{ left.name }}
+          h4 {{ left.name }}
           h6 {{ left.description }}
         .card-action.amber.lighten-4.show-clickable.right-align(ng-click="score(left,right)"
           ng-class="{'lighten-3': hoverLeft}"
@@ -22,7 +22,7 @@ section
     .col.s6
       .card.amber.lighten-5
         .card-content
-          h4.black-text {{ right.name }}
+          h4 {{ right.name }}
           h6 {{ right.description }}
         .card-action.amber.lighten-4.show-clickable.right-align(ng-click="score(right,left)"
           ng-class="{'lighten-3': hoverRight}"
