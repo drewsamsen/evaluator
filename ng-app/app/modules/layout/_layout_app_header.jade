@@ -1,13 +1,23 @@
 .nav-wrapper
+  ul.left.hide-on-med-and-down
+    li(ui-sref-active-eq="blue lighten-1" ng-show="user.email")
+      a(href="#" ui-sref="layout_app.dashboard")
+        i.fa.fa-home.blue-text.text-lighten-5
+    li(ui-sref-active-eq="blue lighten-1" ng-show="user.email")
+      a(ui-sref="layout_app.values.score")
+        i.fa.fa-gamepad.blue-text.text-lighten-5
+    li(ui-sref-active-eq="blue lighten-1" ng-show="user.email")
+      a(ui-sref="layout_app.values")
+        i.fa.fa-sort-amount-desc.blue-text.text-lighten-5
+
   ul.right.hide-on-med-and-down
-    li(ng-show='user.signedIn')
-      a(href='#')
-        i.fa.fa-user.right
-        |  Hello, {{ user.email }}
     li(ng-hide='user.signedIn')
       a(href='#', ui-sref='layout_guest.login')
         i.fa.fa-user.right
         |  Login / Sign up
+    li(ng-show='user.signedIn')
+      a(href="#" ui-sref="layout_app.dashboard")
+        |  {{ user.email }}
     li(ng-show='user.signedIn')
       a(href='#', ng-click='signOut()')
         i.fa.fa-chain-broken.right

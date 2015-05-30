@@ -19,12 +19,13 @@ main {
 }
 
 .container {
-  width: 85% !important;
+  width: 65% !important;
+  max-width: 880px !important;
 }
 
-header, main, footer {
-  padding-left: 240px;
-}
+// header, main, footer {
+//   padding-left: 240px;
+// }
 
 .show-clickable {
   cursor: pointer;

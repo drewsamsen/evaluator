@@ -3,7 +3,14 @@ div(ui-view="")
   section
 
     h4.grey-text.text-darken-1
-      | Values
+      | Results
+    p
+      a(href="#" ui-sref="layout_app.values.score") Play more
+      | &nbsp;to get more interesting &amp; accurate scores.
+
+  .divider(ng-style="{'margin-bottom': '50px'}")
+
+  section
 
     table.hoverable.bordered
       tr.header.grey-text.text-lighten-1

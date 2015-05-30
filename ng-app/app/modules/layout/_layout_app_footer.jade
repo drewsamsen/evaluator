@@ -6,10 +6,17 @@
     .col.l4.offset-l2.s12
       h5.blue-text.text-lighten-4 Links
       ul
+        li(ui-sref-active-eq="blue lighten-1" ng-show="user.admin")
+          a.blue-text.text-lighten-4(href='#', ui-sref='layout_app.users')
+            | Users
+        li(ui-sref-active-eq="blue lighten-1" ng-show="user.admin")
+          a.blue-text.text-lighten-4(href='#', ui-sref='layout_app.match_results')
+            | Match results
+
         li
-          a.blue-text.text-lighten-4(href='#!') Link 1
+          a.blue-text.text-lighten-4(href='#!' ng-hide="user.admin") Link 1
         li
-          a.blue-text.text-lighten-4(href='#!') Link 2
+          a.blue-text.text-lighten-4(href='#!' ng-hide="user.admin") Link 2
         li
           a.blue-text.text-lighten-4(href='#!') Link 3
         li
