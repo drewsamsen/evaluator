@@ -1,5 +1,7 @@
 class MatchResultController < ApplicationController
 
+  before_filter :check_admin
+
   def index
     results = MatchResult.all.order(created_at: :asc)
 

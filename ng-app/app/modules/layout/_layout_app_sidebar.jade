@@ -9,7 +9,7 @@ li(ui-sref-active-eq="blue lighten-5")
   a(ui-sref="layout_guest.login")
     i.fa.fa-unlock-alt.blue-text.text-lighten-3
     | Authentication
-li(ui-sref-active-eq="blue lighten-5")
+li(ui-sref-active-eq="blue lighten-5" ng-show="user.admin")
   a(ui-sref="layout_app.users")
     i.fa.fa-users.blue-text.text-lighten-3
     | Users
@@ -21,7 +21,7 @@ li(ui-sref-active-eq="blue lighten-5")
   a(ui-sref="layout_app.values.score")
     i.fa.fa-gamepad.blue-text.text-lighten-3
     | Play
-li(ui-sref-active-eq="blue lighten-5")
+li(ui-sref-active-eq="blue lighten-5" ng-show="user.admin")
   a(ui-sref="layout_app.match_results")
     i.fa.fa-th-list.blue-text.text-lighten-3
     | Match results
